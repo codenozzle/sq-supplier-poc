@@ -12,5 +12,5 @@ import org.springframework.data.repository.CrudRepository;
  */
 @Transactional
 public interface SupplierRepository extends CrudRepository<Supplier, Long> {
-    List<Supplier> findByName(String title);
+    List<Supplier> findBySupplierName(String title);
 }

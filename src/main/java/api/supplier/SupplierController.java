@@ -46,10 +46,18 @@ public class SupplierController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	@ApiOperation(value = "Add a single Supplier")
-	public @ResponseBody SupplierEntity createAmmo(@RequestBody SupplierEntity supplierEntity) {
+	public @ResponseBody SupplierEntity createSupplier(@RequestBody SupplierEntity supplierEntity) {
 		Supplier supplier = new Supplier(
-			supplierEntity.getName(),
-			supplierEntity.getUrl()
+			supplierEntity.getSupplierName(),
+			supplierEntity.getDba(),
+			supplierEntity.getOtherNames(),
+			supplierEntity.getCountryOfOrigin(),
+			supplierEntity.getSupplierNumber(),
+			supplierEntity.getThirdPartyNumber(),
+			supplierEntity.getLegalStructure(),
+			supplierEntity.getTaxIdType(),
+			supplierEntity.getTaxIdNumber(),
+			supplierEntity.getVatRegistrationNumber()
 		);
 		return new SupplierEntity(repository.save(supplier));
 	}
@@ -61,8 +69,16 @@ public class SupplierController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		Supplier supplier = new Supplier(
-			supplierEntity.getName(),
-			supplierEntity.getUrl()
+			supplierEntity.getSupplierName(),
+			supplierEntity.getDba(),
+			supplierEntity.getOtherNames(),
+			supplierEntity.getCountryOfOrigin(),
+			supplierEntity.getSupplierNumber(),
+			supplierEntity.getThirdPartyNumber(),
+			supplierEntity.getLegalStructure(),
+			supplierEntity.getTaxIdType(),
+			supplierEntity.getTaxIdNumber(),
+			supplierEntity.getVatRegistrationNumber()
 		);
 		supplier.setId(id);
 		repository.save(supplier);
@@ -76,12 +92,39 @@ public class SupplierController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		Supplier supplier = repository.findOne(id);
-		if (!ApiUtils.isEqual(supplier.getName(), supplierEntity.getName(), true)) {
-			supplier.setName(supplierEntity.getName());
+		
+		// Merge the Supplier Entity into the Supplier
+		if (!ApiUtils.isEqual(supplier.getSupplierName(), supplierEntity.getSupplierName(), true)) {
+			supplier.setSupplierName(supplierEntity.getSupplierName());
 		}
-		if (!ApiUtils.isEqual(supplier.getUrl(), supplierEntity.getUrl(), true)) {
-			supplier.setUrl(supplierEntity.getUrl());
+		if (!ApiUtils.isEqual(supplier.getDba(), supplierEntity.getDba(), true)) {
+			supplier.setDba(supplierEntity.getDba());
 		}
+		if (!ApiUtils.isEqual(supplier.getOtherNames(), supplierEntity.getOtherNames(), true)) {
+			supplier.setOtherNames(supplierEntity.getOtherNames());
+		}
+		if (!ApiUtils.isEqual(supplier.getCountryOfOrigin(), supplierEntity.getCountryOfOrigin(), true)) {
+			supplier.setCountryOfOrigin(supplierEntity.getCountryOfOrigin());
+		}
+		if (!ApiUtils.isEqual(supplier.getSupplierNumber(), supplierEntity.getSupplierNumber(), true)) {
+			supplier.setSupplierNumber(supplierEntity.getSupplierNumber());
+		}
+		if (!ApiUtils.isEqual(supplier.getThirdPartyNumber(), supplierEntity.getThirdPartyNumber(), true)) {
+			supplier.setThirdPartyNumber(supplierEntity.getThirdPartyNumber());
+		}
+		if (!ApiUtils.isEqual(supplier.getLegalStructure(), supplierEntity.getLegalStructure(), true)) {
+			supplier.setLegalStructure(supplierEntity.getLegalStructure());
+		}
+		if (!ApiUtils.isEqual(supplier.getTaxIdType(), supplierEntity.getTaxIdType(), true)) {
+			supplier.setTaxIdType(supplierEntity.getTaxIdType());
+		}
+		if (!ApiUtils.isEqual(supplier.getTaxIdNumber(), supplierEntity.getTaxIdNumber(), true)) {
+			supplier.setTaxIdNumber(supplierEntity.getTaxIdNumber());
+		}
+		if (!ApiUtils.isEqual(supplier.getVatRegistrationNumber(), supplierEntity.getVatRegistrationNumber(), true)) {
+			supplier.setVatRegistrationNumber(supplierEntity.getVatRegistrationNumber());
+		}
+		
 		repository.save(supplier);
 		return new ResponseEntity<>(new SupplierEntity(supplier), HttpStatus.OK);
 	}

@@ -10,32 +10,74 @@ import io.swagger.annotations.ApiModelProperty;
  * @author codenozzle
  *
  */
-@ApiModel(description="Supplier of ammunition")
+@ApiModel(description="Supplier")
 public class SupplierEntity {
 	
 	@ApiModelProperty(value = "ID", position = 1)
     private Long id;
 	
-	@ApiModelProperty(value = "Name", position = 2)
-    private String name;
+	@ApiModelProperty(value = "Supplier name", position = 2)
+    private String supplierName;
 	
-	@ApiModelProperty(value = "Website URL", position = 3)
-    private String url;
+	@ApiModelProperty(value = "Doing business as", position = 3)
+    private String dba;
+	
+	@ApiModelProperty(value = "Other names", position = 4)
+    private String otherNames;
+	
+	@ApiModelProperty(value = "Country of origin", position = 5)
+    private String countryOfOrigin;
+	
+	@ApiModelProperty(value = "Supplier number", position = 6)
+    private String supplierNumber;
+	
+	@ApiModelProperty(value = "Third party number", position = 7)
+    private String thirdPartyNumber;
+	
+	@ApiModelProperty(value = "Legal structure", position = 8)
+    private String legalStructure;
+	
+	@ApiModelProperty(value = "Tax ID type", position = 9)
+    private String taxIdType;
+	
+	@ApiModelProperty(value = "Tax ID number", position = 10)
+    private String taxIdNumber;
+	
+	@ApiModelProperty(value = "VAT registration number", position = 11)
+    private String vatRegistrationNumber;
 	
 	public SupplierEntity() {
 		
 	}
 	
-	public SupplierEntity(long id, String name, String url) {
+	public SupplierEntity(long id, String supplierName, String dba, String otherNames, String countryOfOrigin,
+			String supplierNumber, String thirdPartyNumber, String legalStructure, String taxIdType, 
+			String taxIdNumber, String vatRegistrationNumber) {
         this.id = id;
-        this.name = name;
-        this.url = url;
+        this.supplierName = supplierName;
+        this.dba = dba;
+        this.otherNames = otherNames;
+        this.countryOfOrigin = countryOfOrigin;
+        this.supplierNumber = supplierNumber;
+        this.thirdPartyNumber = thirdPartyNumber;
+        this.legalStructure = legalStructure;
+        this.taxIdType = taxIdType;
+        this.taxIdNumber = taxIdNumber;
+        this.vatRegistrationNumber = vatRegistrationNumber;
     }
     
     public SupplierEntity(Supplier supplier) {
     	this.id = supplier.getId();
-        this.name = supplier.getName();
-        this.url = supplier.getUrl();
+        this.supplierName = supplier.getSupplierName();
+        this.dba = supplier.getDba();
+        this.otherNames = supplier.getOtherNames();
+        this.countryOfOrigin = supplier.getCountryOfOrigin();
+        this.supplierNumber = supplier.getSupplierNumber();
+        this.thirdPartyNumber = supplier.getThirdPartyNumber();
+        this.legalStructure = supplier.getLegalStructure();
+        this.taxIdType = supplier.getTaxIdType();
+        this.taxIdNumber = supplier.getTaxIdNumber();
+        this.vatRegistrationNumber = supplier.getVatRegistrationNumber();
 	}
     
     public static Collection<SupplierEntity> get(Iterable<Supplier> suppliers) {
@@ -54,20 +96,86 @@ public class SupplierEntity {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getSupplierName() {
+		return supplierName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setSupplierName(String supplierName) {
+		this.supplierName = supplierName;
 	}
 
-	public String getUrl() {
-		return url;
+	public String getDba() {
+		return dba;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setDba(String dba) {
+		this.dba = dba;
 	}
+
+	public String getOtherNames() {
+		return otherNames;
+	}
+
+	public void setOtherNames(String otherNames) {
+		this.otherNames = otherNames;
+	}
+
+	public String getCountryOfOrigin() {
+		return countryOfOrigin;
+	}
+
+	public void setCountryOfOrigin(String countryOfOrigin) {
+		this.countryOfOrigin = countryOfOrigin;
+	}
+
+	public String getSupplierNumber() {
+		return supplierNumber;
+	}
+
+	public void setSupplierNumber(String supplierNumber) {
+		this.supplierNumber = supplierNumber;
+	}
+
+	public String getThirdPartyNumber() {
+		return thirdPartyNumber;
+	}
+
+	public void setThirdPartyNumber(String thirdPartyNumber) {
+		this.thirdPartyNumber = thirdPartyNumber;
+	}
+
+	public String getLegalStructure() {
+		return legalStructure;
+	}
+
+	public void setLegalStructure(String legalStructure) {
+		this.legalStructure = legalStructure;
+	}
+
+	public String getTaxIdType() {
+		return taxIdType;
+	}
+
+	public void setTaxIdType(String taxIdType) {
+		this.taxIdType = taxIdType;
+	}
+
+	public String getTaxIdNumber() {
+		return taxIdNumber;
+	}
+
+	public void setTaxIdNumber(String taxIdNumber) {
+		this.taxIdNumber = taxIdNumber;
+	}
+
+	public String getVatRegistrationNumber() {
+		return vatRegistrationNumber;
+	}
+
+	public void setVatRegistrationNumber(String vatRegistrationNumber) {
+		this.vatRegistrationNumber = vatRegistrationNumber;
+	}
+
+	
 
 }

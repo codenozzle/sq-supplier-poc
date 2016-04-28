@@ -27,14 +27,28 @@ angular.module('routes', [])
     })
     .when('/admin/suppliers/new', {
       templateUrl: 'views/supplier-info.html',
-      controller:'NewSupplierController as supplierInfo'
+      controller:'NewSupplierController as supplierInfo',
+      resolve: {
+          legalStructures: function($route, SupplierService) {
+          	return SupplierService.fetchAllLegalStructures();
+          },
+          taxIdTypes: function($route, SupplierService) {
+          	return SupplierService.fetchAllTaxIdTypes();
+          }
+        }
     })
     .when('/admin/suppliers/:supplierId', {
       templateUrl: 'views/supplier-info.html',
       controller: 'EditSupplierController as supplierInfo',
       resolve: {
         supplier: function($route, SupplierService) {
-          return SupplierService.fetchOne($route.current.pathParams.supplierId);
+        	return SupplierService.fetchOne($route.current.pathParams.supplierId);
+        },
+        legalStructures: function($route, SupplierService) {
+        	return SupplierService.fetchAllLegalStructures();
+        },
+        taxIdTypes: function($route, SupplierService) {
+        	return SupplierService.fetchAllTaxIdTypes();
         }
       }
     })

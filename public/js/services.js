@@ -47,5 +47,23 @@ angular.module('services', [])
     });
     return deferred.promise;
   };
+  
+  //Gets all of the Legal Structure options
+  this.fetchAllLegalStructures = function () {
+    var deferred = $q.defer();
+    $http.get('/api/supplier/legalStructures/').success(function(data) {
+      deferred.resolve(data);
+    });
+    return deferred.promise;
+  };
+  
+  //Gets all of the Tax ID Types options
+  this.fetchAllTaxIdTypes = function () {
+    var deferred = $q.defer();
+    $http.get('/api/supplier/taxIdTypes/').success(function(data) {
+      deferred.resolve(data);
+    });
+    return deferred.promise;
+  };
 
 });

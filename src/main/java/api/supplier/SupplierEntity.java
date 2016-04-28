@@ -35,10 +35,10 @@ public class SupplierEntity {
     private String thirdPartyNumber;
 	
 	@ApiModelProperty(value = "Legal structure", position = 8)
-    private String legalStructure;
+    private Integer legalStructureId;
 	
 	@ApiModelProperty(value = "Tax ID type", position = 9)
-    private String taxIdType;
+    private Integer taxIdTypeId;
 	
 	@ApiModelProperty(value = "Tax ID number", position = 10)
     private String taxIdNumber;
@@ -51,7 +51,7 @@ public class SupplierEntity {
 	}
 	
 	public SupplierEntity(long id, String supplierName, String dba, String otherNames, String countryOfOrigin,
-			String supplierNumber, String thirdPartyNumber, String legalStructure, String taxIdType, 
+			String supplierNumber, String thirdPartyNumber, Integer legalStructureId, Integer taxIdTypeId, 
 			String taxIdNumber, String vatRegistrationNumber) {
         this.id = id;
         this.supplierName = supplierName;
@@ -60,8 +60,8 @@ public class SupplierEntity {
         this.countryOfOrigin = countryOfOrigin;
         this.supplierNumber = supplierNumber;
         this.thirdPartyNumber = thirdPartyNumber;
-        this.legalStructure = legalStructure;
-        this.taxIdType = taxIdType;
+        this.legalStructureId = legalStructureId;
+        this.taxIdTypeId = taxIdTypeId;
         this.taxIdNumber = taxIdNumber;
         this.vatRegistrationNumber = vatRegistrationNumber;
     }
@@ -74,8 +74,8 @@ public class SupplierEntity {
         this.countryOfOrigin = supplier.getCountryOfOrigin();
         this.supplierNumber = supplier.getSupplierNumber();
         this.thirdPartyNumber = supplier.getThirdPartyNumber();
-        this.legalStructure = supplier.getLegalStructure();
-        this.taxIdType = supplier.getTaxIdType();
+        this.legalStructureId = supplier.getLegalStructureId();
+        this.taxIdTypeId = supplier.getTaxIdTypeId();
         this.taxIdNumber = supplier.getTaxIdNumber();
         this.vatRegistrationNumber = supplier.getVatRegistrationNumber();
 	}
@@ -144,20 +144,20 @@ public class SupplierEntity {
 		this.thirdPartyNumber = thirdPartyNumber;
 	}
 
-	public String getLegalStructure() {
-		return legalStructure;
+	public Integer getLegalStructureId() {
+		return legalStructureId;
 	}
 
-	public void setLegalStructure(String legalStructure) {
-		this.legalStructure = legalStructure;
+	public void setLegalStructureId(Integer legalStructureId) {
+		this.legalStructureId = legalStructureId;
 	}
 
-	public String getTaxIdType() {
-		return taxIdType;
+	public Integer getTaxIdTypeId() {
+		return taxIdTypeId;
 	}
 
-	public void setTaxIdType(String taxIdType) {
-		this.taxIdType = taxIdType;
+	public void setTaxIdTypeId(Integer taxIdTypeId) {
+		this.taxIdTypeId = taxIdTypeId;
 	}
 
 	public String getTaxIdNumber() {

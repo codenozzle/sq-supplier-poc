@@ -21,18 +21,18 @@ angular.module('controllers', [])
 })
 
 // Controller for creating a Supplier
-.controller('NewSupplierController', function($location, SupplierService) {
+.controller('NewSupplierController', function($location, SupplierService, legalStructures, taxIdTypes) {
   // Setup
   var supplierInfo = this;
   supplierInfo.isEdit = false;
 
-  // Dropdown options
-  //editAmmoInfo.inStockOptions = inStockOptions;
-  //editAmmoInfo.supplierOptions = supplierOptions;
+  //Dropdown options
+  supplierInfo.legalStructures = legalStructures;
+  supplierInfo.taxIdTypes = taxIdTypes;
 
   // Defaults to the first value
-  //editAmmoInfo.inStockInit = editAmmoInfo.inStockOptions[0].id;
-  //editAmmoInfo.supplierInit = editAmmoInfo.supplierOptions[0].id;
+  supplierInfo.legalStructuresInit = supplierInfo.legalStructures[0].id;
+  supplierInfo.taxIdTypesInit = supplierInfo.taxIdTypes[0].id;
 
   // Allow the form to create the Supplier
   supplierInfo.create = function() {
@@ -44,7 +44,7 @@ angular.module('controllers', [])
 
 // Controller for updating a Supplier
 .controller('EditSupplierController',
-  function($location, $routeParams, $http, SupplierService, supplier) {
+  function($location, $routeParams, $http, SupplierService, supplier, legalStructures, taxIdTypes) {
     // Setup
     var supplierInfo = this;
     var id = $routeParams.supplierId;
@@ -52,12 +52,12 @@ angular.module('controllers', [])
     supplierInfo.isEdit = true;
 
     // Dropdown options
-    //supplierInfo.inStockOptions = inStockOptions;
-    //supplierInfo.supplierOptions = supplierOptions;
+    supplierInfo.legalStructures = legalStructures;
+    supplierInfo.taxIdTypes = taxIdTypes;
 
     // Defaults to the chosen value
-    //supplierInfo.inStockInit = supplierForm.inStockOptions[supplierForm.supplierInfo.inStockId-1].id;
-    //supplierInfo.supplierInit = supplierForm.supplierOptions[supplierForm.supplierInfo.supplierId-1].id;
+    supplierInfo.legalStructuresInit = supplierInfo.legalStructures[supplierInfo.supplier.legalStructureId-1].id;
+    supplierInfo.taxIdTypesInit = supplierInfo.taxIdTypes[supplierInfo.supplier.taxIdTypeId-1].id;
 
     // Allow the form to delete the Supplier
     supplierInfo.delete = function() {

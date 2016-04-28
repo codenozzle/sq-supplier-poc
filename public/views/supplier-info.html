@@ -31,44 +31,25 @@
           <input type="text" class="form-control" id="countryOfOrigin" placeholder="Country of origin" ng-model="supplierInfo.supplier.countryOfOrigin">
         </div>
         <div class="form-group">
-          <label for="legalStructure">Legal structure</label>
-          <input type="text" class="form-control" id="legalStructure" placeholder="Legal structure" ng-model="supplierInfo.supplier.legalStructure">
+          <label for="title">Legal structure</label>
+          <select class="form-control"
+            ng-init="option.id = supplierInfo.legalStructuresInit"
+            ng-model="supplierInfo.supplier.legalStructureId"
+            ng-options="option.id as option.name for option in supplierInfo.legalStructures">
+          </select>
         </div>
         <div class="form-group">
-          <label for="taxIdType">Tax ID type</label>
-          <input type="text" class="form-control" id="taxIdType" placeholder="Tax ID type" ng-model="supplierInfo.supplier.taxIdType">
+          <label for="title">Tax ID type</label>
+          <select class="form-control"
+            ng-init="option.id = supplierInfo.taxIdTypesInit"
+            ng-model="supplierInfo.supplier.taxIdTypeId"
+            ng-options="option.id as option.name for option in supplierInfo.taxIdTypes">
+          </select>
         </div>
         <div class="form-group">
           <label for="taxIdNumber">Tax ID number</label>
           <input type="text" class="form-control" id="taxIdNumber" placeholder="Tax ID number" ng-model="supplierInfo.supplier.taxIdNumber">
         </div>
-        
-        
-        <!-- 
-        <div class="form-group">
-          <label for="title">In stock</label>
-          <div class="radio" ng-repeat="option in editAmmoInfo.inStockOptions">
-            <label>
-              <input type="radio"
-                ng-model="editAmmoInfo.ammoInfo.inStockId"
-                ng-checked="(option.id == editAmmoInfo.inStockInit)" />
-              {{option.name}}
-            </label>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="casing">Casing</label>
-          <input type="text" class="form-control" id="casing" placeholder="Casing" ng-model="editAmmoInfo.ammoInfo.casing">
-        </div>
-        <div class="form-group">
-          <label for="supplier">Supplier</label>
-          <select class="form-control"
-            ng-init="option.id = editAmmoInfo.supplierInit"
-            ng-model="editAmmoInfo.ammoInfo.supplierId"
-            ng-options="option.id as option.name for option in editAmmoInfo.supplierOptions">
-          </select>
-        </div>
-         -->
         <br>
         <a href="#/admin/suppliers" class="btn">Cancel</a>
         <button class="btn btn-success"

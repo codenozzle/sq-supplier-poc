@@ -23,8 +23,8 @@ public final class Supplier {
     private String countryOfOrigin;
     private String supplierNumber;
     private String thirdPartyNumber;
-    private String legalStructure;
-    private String taxIdType;
+    private Integer legalStructureId;
+    private Integer taxIdTypeId;
     private String taxIdNumber;
     private String vatRegistrationNumber;
     
@@ -33,16 +33,16 @@ public final class Supplier {
     }
     
     public Supplier(String supplierName, String dba, String otherNames, String countryOfOrigin,
-			String supplierNumber, String thirdPartyNumber, String legalStructure, String taxIdType, 
-			String taxIdNumber, String vatRegistrationNumber) {
+			String supplierNumber, String thirdPartyNumber, Integer legalStructure, 
+			Integer taxIdType, String taxIdNumber, String vatRegistrationNumber) {
         this.supplierName = supplierName;
         this.dba = dba;
         this.otherNames = otherNames;
         this.countryOfOrigin = countryOfOrigin;
         this.supplierNumber = supplierNumber;
         this.thirdPartyNumber = thirdPartyNumber;
-        this.legalStructure = legalStructure;
-        this.taxIdType = taxIdType;
+        this.legalStructureId = legalStructure;
+        this.taxIdTypeId = taxIdType;
         this.taxIdNumber = taxIdNumber;
         this.vatRegistrationNumber = vatRegistrationNumber;
     }
@@ -108,20 +108,20 @@ public final class Supplier {
 		this.thirdPartyNumber = thirdPartyNumber;
 	}
 
-	public String getLegalStructure() {
-		return legalStructure;
+	public Integer getLegalStructureId() {
+		return legalStructureId;
 	}
 
-	public void setLegalStructure(String legalStructure) {
-		this.legalStructure = legalStructure;
+	public void setLegalStructureId(Integer legalStructureId) {
+		this.legalStructureId = legalStructureId;
 	}
 
-	public String getTaxIdType() {
-		return taxIdType;
+	public Integer getTaxIdTypeId() {
+		return taxIdTypeId;
 	}
 
-	public void setTaxIdType(String taxIdType) {
-		this.taxIdType = taxIdType;
+	public void setTaxIdType(Integer taxIdTypeId) {
+		this.taxIdTypeId = taxIdTypeId;
 	}
 
 	public String getTaxIdNumber() {

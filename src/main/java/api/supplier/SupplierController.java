@@ -57,8 +57,8 @@ public class SupplierController {
 			supplierEntity.getCountryOfOrigin(),
 			supplierEntity.getSupplierNumber(),
 			supplierEntity.getThirdPartyNumber(),
-			supplierEntity.getLegalStructure(),
-			supplierEntity.getTaxIdType(),
+			supplierEntity.getLegalStructureId(),
+			supplierEntity.getTaxIdTypeId(),
 			supplierEntity.getTaxIdNumber(),
 			supplierEntity.getVatRegistrationNumber()
 		);
@@ -78,8 +78,8 @@ public class SupplierController {
 			supplierEntity.getCountryOfOrigin(),
 			supplierEntity.getSupplierNumber(),
 			supplierEntity.getThirdPartyNumber(),
-			supplierEntity.getLegalStructure(),
-			supplierEntity.getTaxIdType(),
+			supplierEntity.getLegalStructureId(),
+			supplierEntity.getTaxIdTypeId(),
 			supplierEntity.getTaxIdNumber(),
 			supplierEntity.getVatRegistrationNumber()
 		);
@@ -115,11 +115,11 @@ public class SupplierController {
 		if (!ApiUtils.isEqual(supplier.getThirdPartyNumber(), supplierEntity.getThirdPartyNumber(), true)) {
 			supplier.setThirdPartyNumber(supplierEntity.getThirdPartyNumber());
 		}
-		if (!ApiUtils.isEqual(supplier.getLegalStructure(), supplierEntity.getLegalStructure(), true)) {
-			supplier.setLegalStructure(supplierEntity.getLegalStructure());
+		if (!ApiUtils.isEqual(supplier.getLegalStructureId(), supplierEntity.getLegalStructureId(), true)) {
+			supplier.setLegalStructureId(supplierEntity.getLegalStructureId());
 		}
-		if (!ApiUtils.isEqual(supplier.getTaxIdType(), supplierEntity.getTaxIdType(), true)) {
-			supplier.setTaxIdType(supplierEntity.getTaxIdType());
+		if (!ApiUtils.isEqual(supplier.getTaxIdTypeId(), supplierEntity.getTaxIdTypeId(), true)) {
+			supplier.setTaxIdType(supplierEntity.getTaxIdTypeId());
 		}
 		if (!ApiUtils.isEqual(supplier.getTaxIdNumber(), supplierEntity.getTaxIdNumber(), true)) {
 			supplier.setTaxIdNumber(supplierEntity.getTaxIdNumber());

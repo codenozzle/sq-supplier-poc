@@ -3,14 +3,19 @@ package api.enums;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public enum InStockEnum {
-	
-	YES(1, "Yes"), NO(2, "No");
+/**
+ * @author codenozzle
+ *
+ */
+public enum TaxIdTypeEnum {
+
+	FEDERAL_ID(1, "Federal ID"), 
+	SSN(2, "SSN");
 
 	private final Integer id;
     private final String name;
     
-    InStockEnum(Integer id, String name) {
+    TaxIdTypeEnum(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -23,8 +28,8 @@ public enum InStockEnum {
     	return name; 
     }
     
-	public static InStockEnum getEnum(Integer id) {
-		for (InStockEnum value : values()) {
+	public static TaxIdTypeEnum getEnum(Integer id) {
+		for (TaxIdTypeEnum value : values()) {
 			if (value.getId().equals(id)) {
 				return value;
 			}
@@ -34,7 +39,7 @@ public enum InStockEnum {
 
 	public static Collection<EnumEntity> getValues() {
 		Collection<EnumEntity> values = new ArrayList<>();
-		for (InStockEnum value : values()) {
+		for (TaxIdTypeEnum value : values()) {
 			values.add(new EnumEntity(value.getId(), value.getName()));
 		}
 		return values;

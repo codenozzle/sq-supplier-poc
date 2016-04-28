@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+  <div class="panel-heading">{{ search.headingTitle }}</div>
+  <div class="panel-body">
+    <div class="btn-group">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Search Choice <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li class="active">
+          <a href="#/search?choice=1">Choice 1</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <table class="table">
+    <tr>
+      <th>Supplier name</th>
+      <th>DBA</th>
+      <th>Supplier number</th>
+      <th>Legal structure</th>
+    </tr>
+    <tr ng-repeat="supplier in search.suppliers | orderBy: '-supplierName'">
+      <td>{{ supplier.supplierName }}</td>
+      <td>{{ supplier.dba }}</td>
+      <td>{{ supplier.supplierNumber }}</td>
+      <td>{{ supplier.legalStructure }}</td>
+    </tr>
+  </table>
+</div>

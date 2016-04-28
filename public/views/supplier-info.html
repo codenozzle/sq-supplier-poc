@@ -1,0 +1,83 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="well">
+      <form>
+        <div class="form-group">
+          <label for="title">Supplier name</label>
+          <input type="text" class="form-control" id="supplierName" placeholder="Title" ng-model="supplierInfo.supplier.supplierName">
+        </div>
+ 		<div class="form-group">
+          <label for="dba">Doing business as</label>
+          <input type="text" class="form-control" id="dba" placeholder="Doing business as" ng-model="supplierInfo.supplier.dba">
+        </div>
+        <div class="form-group">
+          <label for="otherNames">Other names</label>
+          <input type="text" class="form-control" id="otherNames" placeholder="Other names" ng-model="supplierInfo.supplier.otherNames">
+        </div>
+        <div class="form-group">
+          <label for="supplierNumber">Supplier number</label>
+          <input type="text" class="form-control" id="supplierNumber" placeholder="Supplier number" ng-model="supplierInfo.supplier.supplierNumber">
+        </div>
+        <div class="form-group">
+          <label for="thirdPartyNumber">Third party number</label>
+          <input type="text" class="form-control" id="thirdPartyNumber" placeholder="Third party number" ng-model="supplierInfo.supplier.thirdPartyNumber">
+        </div>
+        <div class="form-group">
+          <label for="vatRegistrationNumber">VAT registration number</label>
+          <input type="text" class="form-control" id="vatRegistrationNumber" placeholder="VAT registration number" ng-model="supplierInfo.supplier.vatRegistrationNumber">
+        </div>
+        <div class="form-group">
+          <label for="countryOfOrigin">Country of origin</label>
+          <input type="text" class="form-control" id="countryOfOrigin" placeholder="Country of origin" ng-model="supplierInfo.supplier.countryOfOrigin">
+        </div>
+        <div class="form-group">
+          <label for="legalStructure">Legal structure</label>
+          <input type="text" class="form-control" id="legalStructure" placeholder="Legal structure" ng-model="supplierInfo.supplier.legalStructure">
+        </div>
+        <div class="form-group">
+          <label for="taxIdType">Tax ID type</label>
+          <input type="text" class="form-control" id="taxIdType" placeholder="Tax ID type" ng-model="supplierInfo.supplier.taxIdType">
+        </div>
+        <div class="form-group">
+          <label for="taxIdNumber">Tax ID number</label>
+          <input type="text" class="form-control" id="taxIdNumber" placeholder="Tax ID number" ng-model="supplierInfo.supplier.taxIdNumber">
+        </div>
+        
+        
+        <!-- 
+        <div class="form-group">
+          <label for="title">In stock</label>
+          <div class="radio" ng-repeat="option in editAmmoInfo.inStockOptions">
+            <label>
+              <input type="radio"
+                ng-model="editAmmoInfo.ammoInfo.inStockId"
+                ng-checked="(option.id == editAmmoInfo.inStockInit)" />
+              {{option.name}}
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="casing">Casing</label>
+          <input type="text" class="form-control" id="casing" placeholder="Casing" ng-model="editAmmoInfo.ammoInfo.casing">
+        </div>
+        <div class="form-group">
+          <label for="supplier">Supplier</label>
+          <select class="form-control"
+            ng-init="option.id = editAmmoInfo.supplierInit"
+            ng-model="editAmmoInfo.ammoInfo.supplierId"
+            ng-options="option.id as option.name for option in editAmmoInfo.supplierOptions">
+          </select>
+        </div>
+         -->
+        <br>
+        <a href="#/admin/suppliers" class="btn">Cancel</a>
+        <button class="btn btn-success"
+          ng-click="supplierInfo.create()" ng-hide="supplierInfo.isEdit">Create</button>
+        <button class="btn btn-primary"
+          ng-click="supplierInfo.update()" ng-show="supplierInfo.isEdit">Save</button>
+        <button class="btn btn-danger"
+          ng-click="supplierInfo.delete()" ng-show="supplierInfo.isEdit">Delete</button>
+      </form>
+    </div>
+  </div>
+</div>

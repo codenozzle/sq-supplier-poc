@@ -40,8 +40,8 @@ public class Application {
 
 	private ApiInfo swaggerInfo() {
         return new ApiInfoBuilder()
-	        .title("SQ Supplier PoC")
-	        .description("REST API documentation")
+	        .title("Supplier API")
+	        .description("REST API documentation and testing tool")
 	        .version("1.0")
 	        .build();
     }

@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import api.core.ApiUtils;
+import api.enums.EnumEntity;
+import api.enums.LegalStructureEnum;
+import api.enums.TaxIdTypeEnum;
 
 /**
  * @author codenozzle
@@ -138,6 +141,18 @@ public class SupplierController {
 		Supplier supplier = repository.findOne(id);
 		repository.delete(id);
 		return new ResponseEntity<>(new SupplierEntity(supplier), HttpStatus.OK);
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/legalStructures")
+	@ApiOperation(value = "Get Legal Structure options")
+	public @ResponseBody Collection<EnumEntity> getLegalStructures() {
+		return LegalStructureEnum.getValues();
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/taxIdTypes")
+	@ApiOperation(value = "Get Tax ID Type options")
+	public @ResponseBody Collection<EnumEntity> getTaxIdTypes() {
+		return TaxIdTypeEnum.getValues();
 	}
 	
 }

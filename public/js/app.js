@@ -1,0 +1,9 @@
+angular.module(
+  'sq-supplier-poc',
+  [
+    'ngRoute',
+    'routes',
+    'controllers',
+    'services'
+  ]
+);

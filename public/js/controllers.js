@@ -7,10 +7,33 @@ angular.module('controllers', [])
 })
 
 // Controller for searching for a Supplier
-.controller('SearchController', function (suppliers) {
+.controller('SearchController', function (SupplierService) {
 	var search = this;
 	search.headingTitle = 'Search for Suppliers';
-	search.suppliers = suppliers;
+	SupplierService.fetchAll().then(function(data) {
+		search.suppliers = data;
+    });
+})
+
+// Filter for searching Suppliers
+.filter('supplierFilter', function(){
+    return function(suppliers, query){
+    	var output = [];
+    	angular.forEach(suppliers, function (supplier) {
+    		if (query != null) {
+        		if (supplier.supplierName.toLowerCase().search(query.toLowerCase()) > -1) {
+        			output.push(supplier);
+        		} else if (supplier.dba.toLowerCase().search(query.toLowerCase()) > -1) {
+        			output.push(supplier);
+        		} else if (supplier.otherNames.toLowerCase().search(query.toLowerCase()) > -1) {
+        			output.push(supplier);
+        		}
+        	} else {
+        		output = suppliers;
+        	}
+        });
+        return output;
+    };
 })
 
 // Controller for displaying the list of all Suppliers

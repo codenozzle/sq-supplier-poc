@@ -9,12 +9,7 @@ angular.module('routes', [])
     })
     .when('/search', {
       templateUrl: 'views/search.html',
-      controller: 'SearchController as search',
-      resolve: {
-  		suppliers: function(SupplierService) {
-  		  return SupplierService.fetchAll();
-  		}
-      }
+      controller: 'SearchController'
     })
     .when('/admin/suppliers', {
       templateUrl: 'views/supplier-list.html',

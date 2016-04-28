@@ -7,3 +7,5 @@
 /.settings/
 
 /public/libs/*
+
+/src/main/resources/public/*

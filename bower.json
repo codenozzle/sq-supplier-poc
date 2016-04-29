@@ -6,6 +6,7 @@
     "angular": "latest",
     "angular-route": "latest",
     "angular-chart.js": "^0.10.2",
-    "Chart.js": "^1.1.1"
+    "Chart.js": "^1.1.1",
+    "bootswatch-dist": "yeti"
   }
 }

@@ -65,5 +65,27 @@ angular.module('services', [])
     });
     return deferred.promise;
   };
+  
+  //Gets all of the Country of Origin options
+  this.fetchAllCountryOfOrigins = function () {
+    var deferred = $q.defer();
+    $http.get('/api/supplier/countryOfOrigins/').success(function(data) {
+      deferred.resolve(data);
+    });
+    return deferred.promise;
+  };
+  
+  this.fetchChartData = function() {
+	  let promises = {
+		suppliers: this.fetchAll(),
+		legalStructures: this.fetchAllLegalStructures(),
+		countryOfOrigins: this.fetchAllCountryOfOrigins()
+	  }
+      var deferred = $q.defer();
+      $q.all(promises).then(function(values) {
+        deferred.resolve(values);
+      });
+      return deferred.promise;
+  }
 
 });

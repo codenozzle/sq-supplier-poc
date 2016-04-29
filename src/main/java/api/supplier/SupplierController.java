@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import api.core.ApiUtils;
+import api.enums.CountryOfOriginEnum;
 import api.enums.EnumEntity;
 import api.enums.LegalStructureEnum;
 import api.enums.TaxIdTypeEnum;
@@ -54,7 +55,7 @@ public class SupplierController {
 			supplierEntity.getSupplierName(),
 			supplierEntity.getDba(),
 			supplierEntity.getOtherNames(),
-			supplierEntity.getCountryOfOrigin(),
+			supplierEntity.getCountryOfOriginId(),
 			supplierEntity.getSupplierNumber(),
 			supplierEntity.getThirdPartyNumber(),
 			supplierEntity.getLegalStructureId(),
@@ -75,7 +76,7 @@ public class SupplierController {
 			supplierEntity.getSupplierName(),
 			supplierEntity.getDba(),
 			supplierEntity.getOtherNames(),
-			supplierEntity.getCountryOfOrigin(),
+			supplierEntity.getCountryOfOriginId(),
 			supplierEntity.getSupplierNumber(),
 			supplierEntity.getThirdPartyNumber(),
 			supplierEntity.getLegalStructureId(),
@@ -106,8 +107,8 @@ public class SupplierController {
 		if (!ApiUtils.isEqual(supplier.getOtherNames(), supplierEntity.getOtherNames(), true)) {
 			supplier.setOtherNames(supplierEntity.getOtherNames());
 		}
-		if (!ApiUtils.isEqual(supplier.getCountryOfOrigin(), supplierEntity.getCountryOfOrigin(), true)) {
-			supplier.setCountryOfOrigin(supplierEntity.getCountryOfOrigin());
+		if (!ApiUtils.isEqual(supplier.getCountryOfOriginId(), supplierEntity.getCountryOfOriginId(), true)) {
+			supplier.setCountryOfOriginId(supplierEntity.getCountryOfOriginId());
 		}
 		if (!ApiUtils.isEqual(supplier.getSupplierNumber(), supplierEntity.getSupplierNumber(), true)) {
 			supplier.setSupplierNumber(supplierEntity.getSupplierNumber());
@@ -153,6 +154,12 @@ public class SupplierController {
 	@ApiOperation(value = "Get Tax ID Type options")
 	public @ResponseBody Collection<EnumEntity> getTaxIdTypes() {
 		return TaxIdTypeEnum.getValues();
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/countryOfOrigins")
+	@ApiOperation(value = "Get Country of Origin options")
+	public @ResponseBody Collection<EnumEntity> getCountryOfOrigins() {
+		return CountryOfOriginEnum.getValues();
 	}
 	
 }

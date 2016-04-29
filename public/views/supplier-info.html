@@ -27,8 +27,12 @@
           <input type="text" class="form-control" id="vatRegistrationNumber" placeholder="VAT registration number" ng-model="supplierInfo.supplier.vatRegistrationNumber">
         </div>
         <div class="form-group">
-          <label for="countryOfOrigin">Country of origin</label>
-          <input type="text" class="form-control" id="countryOfOrigin" placeholder="Country of origin" ng-model="supplierInfo.supplier.countryOfOrigin">
+          <label for="title">Country of origins</label>
+          <select class="form-control"
+            ng-init="option.id = supplierInfo.countryOfOriginsInit"
+            ng-model="supplierInfo.supplier.countryOfOriginId"
+            ng-options="option.id as option.name for option in supplierInfo.countryOfOrigins">
+          </select>
         </div>
         <div class="form-group">
           <label for="title">Legal structure</label>

@@ -5,7 +5,7 @@ angular.module('routes', [])
   $routeProvider
     .when('/', {
       templateUrl: 'views/dashboard.html',
-      controller: 'DashboardController'
+      controller: 'DashboardController as dashboard'
     })
     .when('/search', {
       templateUrl: 'views/search.html',
@@ -17,18 +17,24 @@ angular.module('routes', [])
       resolve: {
 		suppliers: function(SupplierService) {
 		  return SupplierService.fetchAll();
-		}
+		},
+        legalStructures: function(SupplierService) {
+        	return SupplierService.fetchAllLegalStructures();
+        }
       }
     })
     .when('/admin/suppliers/new', {
       templateUrl: 'views/supplier-info.html',
       controller:'NewSupplierController as supplierInfo',
       resolve: {
-          legalStructures: function($route, SupplierService) {
+          legalStructures: function(SupplierService) {
           	return SupplierService.fetchAllLegalStructures();
           },
-          taxIdTypes: function($route, SupplierService) {
+          taxIdTypes: function(SupplierService) {
           	return SupplierService.fetchAllTaxIdTypes();
+          },
+          countryOfOrigins: function(SupplierService) {
+          	return SupplierService.fetchAllCountryOfOrigins();
           }
         }
     })
@@ -39,11 +45,14 @@ angular.module('routes', [])
         supplier: function($route, SupplierService) {
         	return SupplierService.fetchOne($route.current.pathParams.supplierId);
         },
-        legalStructures: function($route, SupplierService) {
+        legalStructures: function(SupplierService) {
         	return SupplierService.fetchAllLegalStructures();
         },
-        taxIdTypes: function($route, SupplierService) {
+        taxIdTypes: function(SupplierService) {
         	return SupplierService.fetchAllTaxIdTypes();
+        },
+        countryOfOrigins: function(SupplierService) {
+        	return SupplierService.fetchAllCountryOfOrigins();
         }
       }
     })

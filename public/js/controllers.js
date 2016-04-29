@@ -1,9 +1,54 @@
-angular.module('controllers', [])
+angular.module('controllers', ['chart.js'])
 
 // Controller for displaying the Dashboard
-.controller('DashboardController', function($scope) {
-    $scope.heading = 'Find a Supplier!';
-    $scope.tagline = 'Find the right Supplier for all your needs!';
+.controller("DashboardController", function (SupplierService) {
+	var dashboard = this;
+	
+	var legalStructureMap = new Map();
+	dashboard.legalStructureHeading = 'Suppliers by Legal Structure';
+	dashboard.legalStructureLabels = [];
+	dashboard.legalStructureData = [];
+	
+	var countryMap = new Map();
+	dashboard.countryHeading = 'Suppliers by Country';
+	dashboard.countryLabels = [];
+	dashboard.countryData = [];
+	
+	// Fetch all of the data for Suppliers, Legal Structures, and Country of Origins
+	SupplierService.fetchChartData().then(function(data) {
+		// Count the Legal Structures and Country of Origins by Supplier
+		angular.forEach(data.suppliers, function (supplier) {
+			// Count the Legal Structures
+			if (!legalStructureMap.has(supplier.legalStructureId)) {
+				legalStructureMap.set(supplier.legalStructureId, {
+					name: data.legalStructures[supplier.legalStructureId-1].name,
+					count: 0
+				});
+			}
+			legalStructureMap.get(supplier.legalStructureId).count++;
+			
+			// Count Country of Origins
+			if (!countryMap.has(supplier.countryOfOriginId)) {
+				countryMap.set(supplier.countryOfOriginId, {
+					name: data.countryOfOrigins[supplier.countryOfOriginId-1].name,
+					count: 0
+				});
+			}
+			countryMap.get(supplier.countryOfOriginId).count++;
+	    });
+		
+		// Build the key and value arrays for the Legal Structure pie chart
+		legalStructureMap.forEach(function (value, key, map) {
+			dashboard.legalStructureLabels.push(value.name);
+			dashboard.legalStructureData.push(value.count);
+		});
+		
+		// Build the key and value arrays for the Country of Origin pie chart
+		countryMap.forEach(function (value, key, map) {
+			dashboard.countryLabels.push(value.name);
+			dashboard.countryData.push(value.count);
+		});
+    });
 })
 
 // Controller for searching for a Supplier
@@ -37,14 +82,18 @@ angular.module('controllers', [])
 })
 
 // Controller for displaying the list of all Suppliers
-.controller('SupplierListController', function(suppliers) {
+.controller('SupplierListController', function(suppliers, legalStructures) {
 	var supplierList = this;
 	supplierList.headingTitle = 'Manage Suppliers';
 	supplierList.suppliers = suppliers;
+	
+	supplierList.getLegalStructure = function(id) {
+		return legalStructures[id-1].name;
+	}
 })
 
 // Controller for creating a Supplier
-.controller('NewSupplierController', function($location, SupplierService, legalStructures, taxIdTypes) {
+.controller('NewSupplierController', function($location, SupplierService, legalStructures, taxIdTypes, countryOfOrigins) {
   // Setup
   var supplierInfo = this;
   supplierInfo.isEdit = false;
@@ -52,10 +101,12 @@ angular.module('controllers', [])
   //Dropdown options
   supplierInfo.legalStructures = legalStructures;
   supplierInfo.taxIdTypes = taxIdTypes;
+  supplierInfo.countryOfOrigins = countryOfOrigins;
 
   // Defaults to the first value
   supplierInfo.legalStructuresInit = supplierInfo.legalStructures[0].id;
   supplierInfo.taxIdTypesInit = supplierInfo.taxIdTypes[0].id;
+  supplierInfo.countryOfOriginsInit = supplierInfo.countryOfOrigins[0].id;
 
   // Allow the form to create the Supplier
   supplierInfo.create = function() {
@@ -67,7 +118,7 @@ angular.module('controllers', [])
 
 // Controller for updating a Supplier
 .controller('EditSupplierController',
-  function($location, $routeParams, $http, SupplierService, supplier, legalStructures, taxIdTypes) {
+  function($location, $routeParams, $http, SupplierService, supplier, legalStructures, taxIdTypes, countryOfOrigins) {
     // Setup
     var supplierInfo = this;
     var id = $routeParams.supplierId;
@@ -77,10 +128,12 @@ angular.module('controllers', [])
     // Dropdown options
     supplierInfo.legalStructures = legalStructures;
     supplierInfo.taxIdTypes = taxIdTypes;
+    supplierInfo.countryOfOrigins = countryOfOrigins;
 
     // Defaults to the chosen value
     supplierInfo.legalStructuresInit = supplierInfo.legalStructures[supplierInfo.supplier.legalStructureId-1].id;
     supplierInfo.taxIdTypesInit = supplierInfo.taxIdTypes[supplierInfo.supplier.taxIdTypeId-1].id;
+    supplierInfo.countryOfOriginsInit = supplierInfo.countryOfOrigins[supplierInfo.supplier.countryOfOriginId-1].id;
 
     // Allow the form to delete the Supplier
     supplierInfo.delete = function() {

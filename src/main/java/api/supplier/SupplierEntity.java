@@ -26,7 +26,7 @@ public class SupplierEntity {
     private String otherNames;
 	
 	@ApiModelProperty(value = "Country of origin", position = 5)
-    private String countryOfOrigin;
+    private Integer countryOfOriginId;
 	
 	@ApiModelProperty(value = "Supplier number", position = 6)
     private String supplierNumber;
@@ -50,14 +50,14 @@ public class SupplierEntity {
 		
 	}
 	
-	public SupplierEntity(long id, String supplierName, String dba, String otherNames, String countryOfOrigin,
+	public SupplierEntity(long id, String supplierName, String dba, String otherNames, Integer countryOfOriginId,
 			String supplierNumber, String thirdPartyNumber, Integer legalStructureId, Integer taxIdTypeId, 
 			String taxIdNumber, String vatRegistrationNumber) {
         this.id = id;
         this.supplierName = supplierName;
         this.dba = dba;
         this.otherNames = otherNames;
-        this.countryOfOrigin = countryOfOrigin;
+        this.countryOfOriginId = countryOfOriginId;
         this.supplierNumber = supplierNumber;
         this.thirdPartyNumber = thirdPartyNumber;
         this.legalStructureId = legalStructureId;
@@ -71,7 +71,7 @@ public class SupplierEntity {
         this.supplierName = supplier.getSupplierName();
         this.dba = supplier.getDba();
         this.otherNames = supplier.getOtherNames();
-        this.countryOfOrigin = supplier.getCountryOfOrigin();
+        this.countryOfOriginId = supplier.getCountryOfOriginId();
         this.supplierNumber = supplier.getSupplierNumber();
         this.thirdPartyNumber = supplier.getThirdPartyNumber();
         this.legalStructureId = supplier.getLegalStructureId();
@@ -120,12 +120,12 @@ public class SupplierEntity {
 		this.otherNames = otherNames;
 	}
 
-	public String getCountryOfOrigin() {
-		return countryOfOrigin;
+	public Integer getCountryOfOriginId() {
+		return countryOfOriginId;
 	}
 
-	public void setCountryOfOrigin(String countryOfOrigin) {
-		this.countryOfOrigin = countryOfOrigin;
+	public void setCountryOfOriginId(Integer countryOfOriginId) {
+		this.countryOfOriginId = countryOfOriginId;
 	}
 
 	public String getSupplierNumber() {

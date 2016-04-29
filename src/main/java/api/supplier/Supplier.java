@@ -20,7 +20,7 @@ public final class Supplier {
 	private String supplierName;
     private String dba;
     private String otherNames;
-    private String countryOfOrigin;
+    private Integer countryOfOriginId;
     private String supplierNumber;
     private String thirdPartyNumber;
     private Integer legalStructureId;
@@ -32,13 +32,13 @@ public final class Supplier {
     	
     }
     
-    public Supplier(String supplierName, String dba, String otherNames, String countryOfOrigin,
+    public Supplier(String supplierName, String dba, String otherNames, Integer countryOfOriginId,
 			String supplierNumber, String thirdPartyNumber, Integer legalStructure, 
 			Integer taxIdType, String taxIdNumber, String vatRegistrationNumber) {
         this.supplierName = supplierName;
         this.dba = dba;
         this.otherNames = otherNames;
-        this.countryOfOrigin = countryOfOrigin;
+        this.countryOfOriginId = countryOfOriginId;
         this.supplierNumber = supplierNumber;
         this.thirdPartyNumber = thirdPartyNumber;
         this.legalStructureId = legalStructure;
@@ -84,12 +84,12 @@ public final class Supplier {
 		this.otherNames = otherNames;
 	}
 
-	public String getCountryOfOrigin() {
-		return countryOfOrigin;
+	public Integer getCountryOfOriginId() {
+		return countryOfOriginId;
 	}
 
-	public void setCountryOfOrigin(String countryOfOrigin) {
-		this.countryOfOrigin = countryOfOrigin;
+	public void setCountryOfOriginId(Integer countryOfOriginId) {
+		this.countryOfOriginId = countryOfOriginId;
 	}
 
 	public String getSupplierNumber() {

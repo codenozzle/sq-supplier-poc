@@ -2,23 +2,26 @@
 A proof-of-concept Angular app that utilizes Sprint Boot to demonstrate managing Suppliers
 
 ## Tech stack
- - UI
- 	- Angular.js
-	- Bootstrap
- - REST API
- 	- Java 8
-	- Spring Boot
-	- Hibernate
-	- MySQL
-	- Swagger
-	- Nginx
- - Amazon Web Services
-	- Elastic Beanstalk
-	- Relational Database Service
- - Tools
-	- Maven
-	- Bower
-	- Git
+### User Interface
+<p><img src="public/technology-logos/angular.png" width="50"/> Angular</p>
+<p><img src="public/technology-logos/bootstrap.png" width="50"/> Bootstrap</p>
+
+### REST API
+<p><img src="public/technology-logos/spring-boot.png" width="50"/> Spring Boot</p>
+<p><img src="public/technology-logos/hibernate-logo.png" width="50"/> Hibernate</p>
+- Java 8
+- MySQL
+- Swagger
+- Nginx
+
+### Amazon Web Services
+- Elastic Beanstalk
+- Relational Database Service
+
+### Tools
+- Maven
+- Bower
+- Git
 
 ## Required software
  - Node

@@ -1,6 +1,9 @@
 # SciQuest Supplier Microservice
 An AWS deployed proof-of-concept of Supplier management, utilizing technologies from SelectSite, ASO, and Dev9 recommendations.
 
+<p>Link to the <a href="http://sqsupplierpoc-env.us-east-1.elasticbeanstalk.com/" title="Demo">demo</a></p>
+<p>Link to the <a href="https://aws.amazon.com/" title="Demo">AWS Console</a></p>
+
 ## Tech stack
 ### User Interface
 <p><img src="public/technology-logos/angular.png" width="80"/> Angular</p>

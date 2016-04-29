@@ -1,35 +1,29 @@
-# SciQuest Supplier PoC
-A proof-of-concept Angular app that utilizes Sprint Boot to demonstrate managing Suppliers
+# SciQuest Supplier Microservice
+An AWS deployed proof-of-concept of Supplier management, utilizing technologies from SelectSite, ASO, and Dev9 recommendations.
 
 ## Tech stack
 ### User Interface
-<p><img src="public/technology-logos/angular.png" width="50"/> Angular</p>
-<p><img src="public/technology-logos/bootstrap.png" width="50"/> Bootstrap</p>
+<p><img src="public/technology-logos/angular.png" width="80"/> Angular</p>
+<p><img src="public/technology-logos/bootstrap.png" width="80"/> Bootstrap</p>
 
 ### REST API
-<p><img src="public/technology-logos/spring-boot.png" width="50"/> Spring Boot</p>
-<p><img src="public/technology-logos/hibernate-logo.png" width="50"/> Hibernate</p>
-- Java 8
-- MySQL
-- Swagger
-- Nginx
+<p><img src="public/technology-logos/java8-logo.png" width="80"/> Java 8</p>
+<p><img src="public/technology-logos/spring-boot.png" width="80"/> Spring Boot</p>
+<p><img src="public/technology-logos/hibernate-logo.png" width="80"/> Hibernate</p>
+<p><img src="public/technology-logos/mysql.png" width="80"/> MySQL</p>
+<p><img src="public/technology-logos/swagger.png" width="80"/> Swagger</p>
+<p><img src="public/technology-logos/nginx-logo.png" width="80"/> Nginx</p>
 
 ### Amazon Web Services
-- Elastic Beanstalk
-- Relational Database Service
+<p><img src="public/technology-logos/elastic-beanstalk.png" width="80"/> Elastic Beanstalk</p>
+<p><img src="public/technology-logos/Amazon-RDS.png" width="80"/> Relational Database Service</p>
+<p><img src="public/technology-logos/ec2-logo.png" width="80"/> Elastic Compute Cloud</p>
 
 ### Tools
-- Maven
-- Bower
-- Git
-
-## Required software
- - Node
- - npm
- - git
- - bower
- - Maven
- - Java 8
+<p><img src="public/technology-logos/maven-logo.svg.png" width="80"/> Maven</p>
+<p><img src="public/technology-logos/bower.png" width="80"/> Bower</p>
+<p><img src="public/technology-logos/npm-logo.png" width="80"/> Node Package Manager</p>
+<p><img src="public/technology-logos/github.png" width="80"/> GitHub</p>
 
 ## Running the app locally
  - bower install

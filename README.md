@@ -15,6 +15,7 @@ An AWS deployed proof-of-concept of Supplier management, utilizing technologies 
 <p><img src="public/technology-logos/hibernate-logo.png" width="80"/> Hibernate</p>
 <p><img src="public/technology-logos/mysql.png" width="80"/> MySQL</p>
 <p><img src="public/technology-logos/swagger.png" width="80"/> Swagger</p>
+<p><img src="public/technology-logos/tomcat-logo.png" width="80"/> Tomcat</p>
 <p><img src="public/technology-logos/nginx-logo.png" width="80"/> Nginx</p>
 
 ### Amazon Web Services

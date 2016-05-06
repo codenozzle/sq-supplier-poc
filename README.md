@@ -19,9 +19,9 @@ An AWS deployed proof-of-concept of Supplier management, utilizing technologies 
 <p><img src="public/technology-logos/nginx-logo.png" width="80"/> Nginx</p>
 
 ### Amazon Web Services
+<p><img src="public/technology-logos/ec2-logo.png" width="80"/> Elastic Compute Cloud</p>
 <p><img src="public/technology-logos/elastic-beanstalk.png" width="80"/> Elastic Beanstalk</p>
 <p><img src="public/technology-logos/Amazon-RDS.png" width="80"/> Relational Database Service</p>
-<p><img src="public/technology-logos/ec2-logo.png" width="80"/> Elastic Compute Cloud</p>
 
 ### Tools
 <p><img src="public/technology-logos/maven-logo.svg.png" width="80"/> Maven</p>

@@ -1,4 +1,4 @@
-# SciQuest Supplier Microservice
+# SciQuest Supplier Microservice in AWS
 An AWS deployed proof-of-concept of Supplier management, utilizing technologies from SelectSite, ASO, and Dev9 recommendations.
 
 <p>Link to the <a href="http://sqsupplierpoc-env.us-east-1.elasticbeanstalk.com/" title="Demo">demo</a></p>
